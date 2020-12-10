@@ -3,8 +3,11 @@ import { IUsersState } from '../interfaces/interfaces';
 
 const initialState: IUsersState = {
   users: [],
+  currentUser: null,
   since: 0,
   perPage: 10,
+  totalPages: 10,
+  currentPage: 1
 };
 
 const usersSlice: Slice = createSlice({
@@ -12,11 +15,12 @@ const usersSlice: Slice = createSlice({
   initialState,
   reducers: {
     fetchUsers: (state, { payload }) => ({ ...state, users: payload }),
-    // setSince: (state, { payload }) => ({ ...state, since: payload }),
-    // setPerPage: (state, { payload }) => ({ ...state, perPage: payload }),
+    setCurrentUser: (state, { payload }) => ({ ...state, currentUser: payload }),
+    setSince: (state, { payload }) => ({ ...state, since: payload }),
+    setCurrentPage: (state, { payload }) => ({ ...state, currentPage: payload }),
   },
 });
 
-export const { fetchUsers } = usersSlice.actions;
+export const { fetchUsers, setCurrentUser, setSince, setCurrentPage } = usersSlice.actions;
 
 export default usersSlice.reducer;

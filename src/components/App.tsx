@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import PeopleRoundedIcon from '@material-ui/icons/PeopleRounded';
@@ -27,12 +27,14 @@ export const App = () => {
     <div className={classes.root}>
       <header>
         <AppBar position='static'>
-          <Toolbar>
-            <PeopleRoundedIcon className={classes.usersIcon} />
-            <Typography variant='h6' className={classes.title}>
-              GitHub Users
-            </Typography>
-          </Toolbar>
+          <Link to='/users'>
+            <Toolbar>
+              <PeopleRoundedIcon className={classes.usersIcon} />
+              <Typography variant='h6' className={classes.title}>
+                GitHub Users
+              </Typography>
+            </Toolbar>
+          </Link>
         </AppBar>
       </header>
       <main>
