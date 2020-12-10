@@ -10,7 +10,6 @@ export const getUsers = () => async (dispatch: Dispatch<IGetUsersAction>, getSta
     const response = await axios({
       method: 'get',
       url: `https://api.github.com/users?since=${since}&per_page=${perPage}`,
-      headers: { 'Authorization': 'Bearer cec9d20424264a3bc957ade7abd7cc4d13da8b26' }
     });
 
     dispatch(fetchUsers(response.data));
@@ -25,7 +24,6 @@ export const getUser = (login: string) => async (dispatch: Dispatch<IGetUsersAct
     const response = await axios({
       method: 'get',
       url: `https://api.github.com/users/${login}`,
-      headers: { 'Authorization': 'Bearer cec9d20424264a3bc957ade7abd7cc4d13da8b26' }
     });
 
     dispatch(setCurrentUser(response.data));
